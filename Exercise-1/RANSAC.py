@@ -14,9 +14,21 @@ cloud_filtered = vox.filter()
 
 filename = 'voxel-downampled.pcd'
 
-
 # PassThrough filter
+passthrough = cloud_filtered.make_passthrough_filter()
 
+#Assign axis and range to the passthrough filter object
+filter_axis = 'z'
+passthrough.set_filter_field_name(filter_axis)
+axis_min = 0
+axis_max = 2
+
+passthrough.set_filter_limits(axis_min, axis_max)
+
+#Finally user the filter function to obtain the resultant point cloud
+cloud_filtered = passthrough.filter()
+filename = 'pass_through_filtered.pcd'
+#pcl.save(cloud_filtered, filename)
 
 # RANSAC plane segmentation
 
