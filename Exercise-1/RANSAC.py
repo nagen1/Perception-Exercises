@@ -12,8 +12,6 @@ vox.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
 
 cloud_filtered = vox.filter()
 
-filename = 'voxel-downampled.pcd'
-
 # PassThrough filter
 passthrough = cloud_filtered.make_passthrough_filter()
 
@@ -28,7 +26,7 @@ passthrough.set_filter_limits(axis_min, axis_max)
 #Finally user the filter function to obtain the resultant point cloud
 cloud_filtered = passthrough.filter()
 filename = 'pass_through_filtered.pcd'
-#pcl.save(cloud_filtered, filename)
+
 
 # RANSAC plane segmentation
 
