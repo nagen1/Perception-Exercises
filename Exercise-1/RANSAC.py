@@ -34,7 +34,6 @@ filename = 'pass_through_filtered.pcd'
 # Extract inliers
 
 # Save pcd for table
-# pcl.save(cloud, filename)
 pcl.save(cloud_filtered, filename)
 
 # Extract outliers
