@@ -41,8 +41,10 @@ def pcl_callback(pcl_msg):
     # TODO: Extract inliers and outliers
     extracted_inliers = cloud_filtered.extract(inliers, negative=False)
     extracted_outliers = cloud_filtered.extract(inliiers, negative=True)
-    
+
     # TODO: Euclidean Clustering
+    white_cloud =  
+    tree = white_cloud.make_kdtree()
 
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
 
