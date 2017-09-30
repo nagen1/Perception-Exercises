@@ -9,12 +9,11 @@ from pcl_helper import *
 def pcl_callback(pcl_msg):
 
     # TODO: Convert ROS msg to PCL data
-    ros_cloud_objects =
-    ros_cloud_table =
+    cloud = pcl_objects_pub.publish(pcl_msg)
 
     # TODO: Voxel Grid Downsampling
     vox = cloud.make_voxel_grid_filter()
-    LEAF_SIZE = 1
+    LEAF_SIZE = 0.01
     vox.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
 
     cloud_filtered = vox.filter()
@@ -23,8 +22,8 @@ def pcl_callback(pcl_msg):
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
-    axis_min = 0
-    axis_max = 2
+    axis_min = 0.6
+    axis_max = 1.2
     passthrough.set_filter_limits(axis_min, axis_max)
 
     cloud_filtered = passthrough.filter()
@@ -34,16 +33,16 @@ def pcl_callback(pcl_msg):
     seg.set_model_type(pcl.SACMODEL_PLANE)
     seg.set_method_type(pcl.SAC_RANSAC)
 
-    max_distance = 1
+    max_distance = 0.01
     seg.set_distance_threshold(max_distance)
-    inliiers, coefficients = seg.segment()
 
-    # TODO: Extract inliers and outliers
+    # TODO: DBSCAN Algorithm or Extract inliers and outliers
+    inliiers, coefficients = seg.segment()
     extracted_inliers = cloud_filtered.extract(inliers, negative=False)
     extracted_outliers = cloud_filtered.extract(inliiers, negative=True)
 
     # TODO: Euclidean Clustering
-    white_cloud =  
+    white_cloud =
     tree = white_cloud.make_kdtree()
 
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
