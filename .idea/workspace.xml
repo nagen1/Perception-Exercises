@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ca10050f-fabf-4dd2-b6c4-2f3d02ca3719" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/template.py" afterPath="$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/template.py" />
-    </list>
+    <list default="true" id="ca10050f-fabf-4dd2-b6c4-2f3d02ca3719" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,55 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RANSAC.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Exercise-1/RANSAC.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="k-means.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/k-means/k-means.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="24" column="15" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dbscan_algorithm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DBSCAN/dbscan_algorithm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="796">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="template.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/template.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="727">
-              <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pcl_helper.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/pcl_helper.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2572">
-              <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+            <state relative-caret-position="619">
+              <caret line="91" column="76" lean-forward="true" selection-start-line="91" selection-start-column="76" selection-end-line="91" selection-end-column="76" />
               <folding />
             </state>
           </provider>
@@ -79,6 +33,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>sklearn</find>
+      <find>pcl_objects_pub</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/Exercise-2/sensor_stick</dir>
@@ -147,6 +102,24 @@
               <item name="Perception-Exercises" type="b2602c69:ProjectViewProjectNode" />
               <item name="Perception-Exercises" type="462c0819:PsiDirectoryNode" />
               <item name="Exercise-2" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor_stick" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Perception-Exercises" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Perception-Exercises" type="462c0819:PsiDirectoryNode" />
+              <item name="Exercise-3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Perception-Exercises" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Perception-Exercises" type="462c0819:PsiDirectoryNode" />
+              <item name="Exercise-3" type="462c0819:PsiDirectoryNode" />
+              <item name="sensor_stick" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Perception-Exercises" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Perception-Exercises" type="462c0819:PsiDirectoryNode" />
+              <item name="Exercise-3" type="462c0819:PsiDirectoryNode" />
               <item name="sensor_stick" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -261,21 +234,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exercise-1/RANSAC.py">
+    <entry file="file://$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/pcl_helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state relative-caret-position="1676">
+          <caret line="197" column="27" lean-forward="true" selection-start-line="197" selection-start-column="27" selection-end-line="197" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/k-means/k-means.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="15" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -289,18 +252,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/pcl_helper.py">
+    <entry file="file://$PROJECT_DIR$/k-means/k-means.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2572">
-          <caret line="30" column="24" lean-forward="true" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+        <state relative-caret-position="270">
+          <caret line="24" column="15" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exercise-1/RANSAC.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Exercise-2/sensor_stick/scripts/template.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="727">
-          <caret line="97" column="34" lean-forward="true" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
+        <state relative-caret-position="619">
+          <caret line="91" column="76" lean-forward="true" selection-start-line="91" selection-start-column="76" selection-end-line="91" selection-end-column="76" />
           <folding />
         </state>
       </provider>
