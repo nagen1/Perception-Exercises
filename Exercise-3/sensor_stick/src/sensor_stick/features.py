@@ -10,7 +10,7 @@ def rgb_to_hsv(rgb_list):
     return hsv_normalized
 
 
-def compute_color_histograms(cloud, using_hsv=False):
+def compute_color_histograms(cloud, using_hsv=True):
 
     # Compute histograms for the clusters
     point_colors_list = []
@@ -24,9 +24,9 @@ def compute_color_histograms(cloud, using_hsv=False):
             point_colors_list.append(rgb_list)
 
     # Populate lists with color values
-    channel_1_vals = []
-    channel_2_vals = []
-    channel_3_vals = []
+    channel_1_vals = [32]
+    channel_2_vals = [32]
+    channel_3_vals = [32]
 
     for color in point_colors_list:
         channel_1_vals.append(color[0])
