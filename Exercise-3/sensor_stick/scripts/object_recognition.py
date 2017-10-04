@@ -120,7 +120,7 @@ def pcl_callback(pcl_msg):
 
     rospy.loginfo('Detected {} object: {}', format(len(detected_objects_labels), detected_objects_labels))
     # Publish the list of detected objects
-    detected_objects_pub.publish(detected_objects)    
+    detected_objects_pub.publish(detected_objects)
 
 if __name__ == '__main__':
 
@@ -134,6 +134,17 @@ if __name__ == '__main__':
     pcl_objects_pub = rospy.Publisher('/pcl_objects', PointCloud2, queue_size=1)
     pcl_table_pub = rospy.Publisher('/pcl_table', PointCloud2, queue_size=1)
     pcl_cluster_pub = rospy.Publisher('/pcl_cluster', PointCloud2, queue_size=1)
+    object_markers_pub = rospy.Publisher('/object_markers', Marker, queue_size=1)
+    detected_objects_pub = rospy.Publisher('/detected_objects', DetectedObjectsArray, queue_size=1)
+
+    # TODO: Load Model From disk
+    model = pickle.load(open('model.sav', 'rb'))
+    clf = model['classifier']
+    encoder = LabelEncoder()
+    encoder.classes_ = model['classes']
+    scaler = model['scaler']
+
+
     # Initialize color_list
     get_color_list.color_list = []
 
