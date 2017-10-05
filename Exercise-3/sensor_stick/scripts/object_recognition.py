@@ -7,6 +7,7 @@ from sensor_stick.features import compute_color_histograms
 from sensor_stick.features import compute_normal_histograms
 from visualization_msgs.msg import Marker
 import pickle
+from sensor_stick.training_helper import capture_sample
 from sensor_stick.marker_tools import *
 from sensor_stick.msg import DetectedObjectsArray
 from sensor_stick.msg import DetectedObject
@@ -33,14 +34,23 @@ def pcl_callback(pcl_msg):
     cloud_filtered = vox.filter()
 
     # TODO: PassThrough Filter
-    passthrough = cloud_filtered.make_passthrough_filter()
-    filter_axis = 'z'
-    passthrough.set_filter_field_name(filter_axis)
+    # Pass through Z direction
+    passthrough_z = cloud_filtered.make_passthrough_filter()
+    filter_axis_z = 'z'
+    passthrough_z.set_filter_field_name(filter_axis_z)
     axis_min = 0.6
     axis_max = 1.2
-    passthrough.set_filter_limits(axis_min, axis_max)
+    passthrough_z.set_filter_limits(axis_min, axis_max)
+    cloud_filtered = passthrough_z.filter()
 
-    cloud_filtered = passthrough.filter()
+    # Pass through x direction
+    passthrough_x = cloud_filtered.make_passthrough_filter()
+    filter_axis_x = 'z'
+    passthrough_x.set_filter_field_name(filter_axis_x)
+    axis_min = 0.6
+    axis_max = 1.2
+    passthrough_x.set_filter_limits(axis_min, axis_max)
+    cloud_filtered = passthrough_x.filter()
 
     # TODO: RANSAC Plane Segmentation
     seg = cloud_filtered.make_segmenter()
@@ -61,9 +71,9 @@ def pcl_callback(pcl_msg):
 
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
     ec = white_cloud.make_EuclideanClusterExtraction()
-    ec.set_ClusterTolerance(0.001)
-    ec.set_MinClusterSize(10)
-    ec.set_MaxClusterSize(250)
+    ec.set_ClusterTolerance(0.05)
+    ec.set_MinClusterSize(30)
+    ec.set_MaxClusterSize(3000)
 
     ec.set_SearchMethod(tree)
     cluster_indices = ec.Extract()
@@ -87,12 +97,12 @@ def pcl_callback(pcl_msg):
 
     # TODO: Convert PCL data to ROS messages
     ros_cloud_objects = pcl_to_ros(extracted_outliers)
-    ros_cloud_tables = pcl_to_ros(extracted_inliers)
+    ros_cloud_table = pcl_to_ros(extracted_inliers)
     ros_cluster_cloud = pcl_to_ros(cluster_cloud)
 
     # TODO: Publish ROS messages
     pcl_objects_pub.publish(ros_cloud_objects)
-    pcl_table_pub.publish(ros_cloud_tables)
+    pcl_table_pub.publish(ros_cloud_table)
     pcl_cluster_pub.publish(ros_cluster_cloud)
 
     # Exercise-3 TODOs:
@@ -104,16 +114,17 @@ def pcl_callback(pcl_msg):
     for index, pts_list in enumerate(cluster_indices):
 
         # Grab the points for the cluster
-        pcl_cluster = ros_cloud_objects.extract(pts_list)
+        pcl_cluster = extracted_inliers.extract(pts_list)
         ros_cluster = pcl_to_ros(pcl_cluster)
 
         # Compute the associated feature vector
         # Extract histogram features
-        chists = compute_color_histograms(sample_cloud, using_hsv=True)
-        normals = get_normals(sample_cloud)
+        # sample_cloud = capture_sample()
+        chists = compute_color_histograms(ros_cluster, using_hsv=True)
+        normals = get_normals(ros_cluster)
         nhists = compute_normal_histograms(normals)
         feature = np.concatenate((chists, nhists))
-        labeled_features.append([feature, model_name])
+        #labeled_features.append([feature, model_name])
 
 
         # Make the prediction
