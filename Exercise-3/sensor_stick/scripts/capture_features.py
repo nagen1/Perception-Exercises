@@ -14,7 +14,6 @@ from sensor_stick.srv import GetNormals
 from geometry_msgs.msg import Pose
 from sensor_msgs.msg import PointCloud2
 
-
 def get_normals(cloud):
     get_normals_prox = rospy.ServiceProxy('/feature_extractor/get_normals', GetNormals)
     return get_normals_prox(cloud).cluster
@@ -39,7 +38,7 @@ if __name__ == '__main__':
     for model_name in models:
         spawn_model(model_name)
 
-        for i in range(8):
+        for i in range(10):
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
             try_count = 0
