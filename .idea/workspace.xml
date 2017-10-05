@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ca10050f-fabf-4dd2-b6c4-2f3d02ca3719" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Exercise-3/sensor_stick/scripts/object_recognition.py" afterPath="$PROJECT_DIR$/Exercise-3/sensor_stick/scripts/object_recognition.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
