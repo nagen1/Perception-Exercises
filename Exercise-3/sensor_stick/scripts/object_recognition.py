@@ -35,22 +35,13 @@ def pcl_callback(pcl_msg):
 
     # TODO: PassThrough Filter
     # Pass through Z direction
-    passthrough_z = cloud_filtered.make_passthrough_filter()
-    filter_axis_z = 'z'
-    passthrough_z.set_filter_field_name(filter_axis_z)
-    axis_min = 0.6
+    passthrough = cloud_filtered.make_passthrough_filter()
+    filter_axis = 'z'
+    passthrough.set_filter_field_name(filter_axis)
+    axis_min = 0.75
     axis_max = 1.2
-    passthrough_z.set_filter_limits(axis_min, axis_max)
-    cloud_filtered = passthrough_z.filter()
-
-    # Pass through x direction
-    passthrough_x = cloud_filtered.make_passthrough_filter()
-    filter_axis_x = 'z'
-    passthrough_x.set_filter_field_name(filter_axis_x)
-    axis_min = 0.6
-    axis_max = 1.2
-    passthrough_x.set_filter_limits(axis_min, axis_max)
-    cloud_filtered = passthrough_x.filter()
+    passthrough.set_filter_limits(axis_min, axis_max)
+    cloud_filtered = passthrough.filter()
 
     # TODO: RANSAC Plane Segmentation
     seg = cloud_filtered.make_segmenter()
@@ -72,8 +63,8 @@ def pcl_callback(pcl_msg):
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
     ec = white_cloud.make_EuclideanClusterExtraction()
     ec.set_ClusterTolerance(0.05)
-    ec.set_MinClusterSize(30)
-    ec.set_MaxClusterSize(3000)
+    ec.set_MinClusterSize(20)
+    ec.set_MaxClusterSize(2000)
 
     ec.set_SearchMethod(tree)
     cluster_indices = ec.Extract()

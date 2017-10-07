@@ -20,6 +20,7 @@ def pcl_callback(pcl_msg):
     cloud_filtered = vox.filter()
 
     # TODO: PassThrough Filter
+
     passthrough = cloud_filtered.make_passthrough_filter()
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
