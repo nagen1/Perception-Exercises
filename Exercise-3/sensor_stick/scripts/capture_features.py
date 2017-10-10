@@ -38,7 +38,7 @@ if __name__ == '__main__':
     for model_name in models:
         spawn_model(model_name)
 
-        for i in range(10):
+        for i in range(50):
             # make five attempts to get a valid a point cloud then give up
             sample_was_good = False
             try_count = 0

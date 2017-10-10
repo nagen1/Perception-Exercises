@@ -28,7 +28,7 @@ def pcl_callback(pcl_msg):
 
     # TODO: Voxel Grid Downsampling
     vox = cloud.make_voxel_grid_filter()
-    LEAF_SIZE = 0.001
+    LEAF_SIZE = 0.01
     vox.set_leaf_size(LEAF_SIZE, LEAF_SIZE, LEAF_SIZE)
 
     cloud_filtered = vox.filter()
@@ -39,7 +39,7 @@ def pcl_callback(pcl_msg):
     filter_axis = 'z'
     passthrough.set_filter_field_name(filter_axis)
     axis_min = 0.75
-    axis_max = 1.2
+    axis_max = 1.1
     passthrough.set_filter_limits(axis_min, axis_max)
     cloud_filtered = passthrough.filter()
 
@@ -62,9 +62,9 @@ def pcl_callback(pcl_msg):
 
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
     ec = white_cloud.make_EuclideanClusterExtraction()
-    ec.set_ClusterTolerance(0.05)
-    ec.set_MinClusterSize(5)
-    ec.set_MaxClusterSize(3000)
+    ec.set_ClusterTolerance(0.025)
+    ec.set_MinClusterSize(10)
+    ec.set_MaxClusterSize(2000)
 
     ec.set_SearchMethod(tree)
     cluster_indices = ec.Extract()
@@ -122,7 +122,7 @@ def pcl_callback(pcl_msg):
         prediction = clf.predict(scaler.transform(feature.reshape(1, -1)))
         label = encoder.inverse_transform(prediction)[0]
         detected_objects_labels.append(label)
-        rospy.loginfo('Detected {} object: {}', detected_objects_labels)
+
 
         # Publish a label into RViz
         label_pos = list(white_cloud[pts_list[0]])
