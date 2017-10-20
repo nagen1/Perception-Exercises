@@ -156,6 +156,7 @@ if __name__ == '__main__':
 
     # TODO: Load Model From disk
     model = pickle.load(open('model.sav', 'rb'))
+    print(type(model))
     clf = model['classifier']
     encoder = LabelEncoder()
     encoder.classes_ = model['classes']
