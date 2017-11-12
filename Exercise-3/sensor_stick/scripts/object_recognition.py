@@ -63,7 +63,7 @@ def pcl_callback(pcl_msg):
     # TODO: Create Cluster-Mask Point Cloud to visualize each cluster separately
     ec = white_cloud.make_EuclideanClusterExtraction()
     ec.set_ClusterTolerance(0.025)
-    ec.set_MinClusterSize(10)
+    ec.set_MinClusterSize(20)
     ec.set_MaxClusterSize(2000)
 
     ec.set_SearchMethod(tree)
@@ -105,7 +105,7 @@ def pcl_callback(pcl_msg):
     for index, pts_list in enumerate(cluster_indices):
 
         # Grab the points for the cluster
-        pcl_cluster = extracted_inliers.extract(pts_list)
+        pcl_cluster = extracted_outliers.extract(pts_list)
         ros_cluster = pcl_to_ros(pcl_cluster)
 
         # Compute the associated feature vector
