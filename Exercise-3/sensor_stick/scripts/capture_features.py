@@ -30,15 +30,7 @@ if __name__ == '__main__':
         'book',
         'sticky_notes',
         'snacks',
-        'eraser',
-        'glue',
-        'beer',
-        'bowl',
-        'create',
-        'disk_part',
-        'hammer',
-        'plastic_cup',
-        'soda_can']
+        'eraser']
 
     # Disable gravity and delete the ground plane
     initial_setup()
@@ -72,5 +64,5 @@ if __name__ == '__main__':
         delete_model()
 
 
-    pickle.dump(labeled_features, open('model.sav', 'wb'))
+    pickle.dump(labeled_features, open('traing_set.sav', 'wb'))
 

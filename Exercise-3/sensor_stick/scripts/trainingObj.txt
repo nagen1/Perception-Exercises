@@ -1,0 +1,17 @@
+object_list:
+  - name: biscuits
+
+  - name: soap
+
+  - name: soap2
+
+  - name: book
+
+  - name: glue
+
+  - name: sticky_notes
+
+  - name: snacks
+
+  - name: eraser
+
